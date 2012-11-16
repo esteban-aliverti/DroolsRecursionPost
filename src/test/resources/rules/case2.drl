@@ -1,0 +1,14 @@
+package com.ilesteban.drools.recursion;
+
+rule "Apply more than 3 years seniority discount"  //Case2.java
+when
+    $c: Customer(seniority > 3, discountReasons not contains "Seniority grater than 3 years")
+then
+    modify($c){
+        setDiscount($c.getDiscount()+0.1),
+        addDiscountReason("Seniority grater than 3 years")
+    }
+end
+
+
+
